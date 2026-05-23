@@ -1,0 +1,25 @@
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home.jsx'
+
+// Recorrido 1 — Encargado de bodega (persona A)
+import BodegaInicio from './pages/bodega/BodegaInicio.jsx'
+
+// Recorrido 2 — Auxiliar de farmacia (persona B)
+import FarmaciaInicio from './pages/farmacia/FarmaciaInicio.jsx'
+
+// Placeholder — Administrador (fuera del alcance del PMN)
+import AdminInicio from './pages/admin/AdminInicio.jsx'
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+
+      {/* Cada persona agrega sus pantallas dentro de su carpeta de recorrido.
+          Ej: <Route path="/bodega/registrar" element={<RegistrarLote />} /> */}
+      <Route path="/bodega" element={<BodegaInicio />} />
+      <Route path="/farmacia" element={<FarmaciaInicio />} />
+      <Route path="/admin" element={<AdminInicio />} />
+    </Routes>
+  )
+}
