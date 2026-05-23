@@ -5,12 +5,16 @@ del modelo logrado en la Fase 1.
 
 ## Cómo correrlo
 
+Este proyecto usa **pnpm** (no npm).
+
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 Abre la URL que muestra Vite (por defecto http://localhost:5173).
+
+> Si no tienes pnpm: `corepack enable pnpm` (viene incluido en Node).
 
 ## Estructura
 
