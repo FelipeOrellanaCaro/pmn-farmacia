@@ -217,3 +217,265 @@ body {
 .btn:hover {
   background: var(--primary-dark);
 }
+
+.btn:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.btn.secondary {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.btn.secondary:hover {
+  background: #cbd5e1;
+}
+
+.btn.danger {
+  background: #dc2626;
+}
+
+.btn.danger:hover {
+  background: #b91c1c;
+}
+
+/* ---------- Stepper ---------- */
+.stepper {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 28px;
+}
+
+.stepper .step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.stepper .step-num {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.stepper .step.actual {
+  background: #ccfbf1;
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+.stepper .step.actual .step-num {
+  background: var(--primary);
+}
+
+.stepper .step.hecho .step-num {
+  background: var(--primary-dark);
+}
+
+/* ---------- Pasos / formularios ---------- */
+.paso h3 {
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+}
+
+.step-desc {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.field {
+  display: block;
+  margin-bottom: 18px;
+}
+
+.field > span {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.field select,
+.field input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: #fff;
+}
+
+.field select:focus,
+.field input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.acciones.col {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.acciones .btn {
+  margin-top: 0;
+}
+
+/* ---------- Tarjetas de lote ---------- */
+.lote-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+}
+
+.lote-card h4 {
+  font-size: 1.05rem;
+  margin: 6px 0 2px;
+}
+
+.lote-card p {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.lote-card.sugerido {
+  border-color: var(--primary);
+  background: #f0fdfa;
+}
+
+.lote-card.descartado {
+  opacity: 0.85;
+  background: #fafafa;
+}
+
+.lote-card .motivo {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.82rem;
+  color: #b45309;
+  font-weight: 600;
+}
+
+.descartados {
+  margin: 18px 0;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+/* ---------- Alertas ---------- */
+.alert {
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.alert.warning {
+  background: #fef9c3;
+  color: #854d0e;
+  border-left: 3px solid #d97706;
+}
+
+/* ---------- Resumen / checkbox ---------- */
+.resumen {
+  list-style: none;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.resumen li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  font-size: 0.92rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.resumen li:last-child {
+  border-bottom: none;
+}
+
+.resumen li span {
+  color: var(--muted);
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: #334155;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.checkbox input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+}
+
+/* ---------- Resultado ---------- */
+.resultado {
+  text-align: center;
+  padding: 12px 0;
+}
+
+.resultado-icono {
+  font-size: 3rem;
+  margin-bottom: 8px;
+}
+
+.resultado h3 {
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+
+.resultado.ok h3 {
+  color: var(--primary-dark);
+}
+
+.resultado.bloqueado h3 {
+  color: #b91c1c;
+}
+
+.resultado .trazabilidad {
+  text-align: left;
+  margin: 24px 0;
+}
+
+.resultado .acciones {
+  justify-content: center;
+}

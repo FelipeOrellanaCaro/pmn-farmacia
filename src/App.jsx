@@ -6,6 +6,7 @@ import BodegaInicio from './pages/bodega/BodegaInicio.jsx'
 
 // Recorrido 2 — Auxiliar de farmacia (persona B)
 import FarmaciaInicio from './pages/farmacia/FarmaciaInicio.jsx'
+import VentaFlow from './pages/farmacia/VentaFlow.jsx'
 
 // Placeholder — Administrador (fuera del alcance del PMN)
 import AdminInicio from './pages/admin/AdminInicio.jsx'
@@ -19,6 +20,7 @@ export default function App() {
           Ej: <Route path="/bodega/registrar" element={<RegistrarLote />} /> */}
       <Route path="/bodega" element={<BodegaInicio />} />
       <Route path="/farmacia" element={<FarmaciaInicio />} />
+      <Route path="/farmacia/venta" element={<VentaFlow />} />
       <Route path="/admin" element={<AdminInicio />} />
     </Routes>
   )
