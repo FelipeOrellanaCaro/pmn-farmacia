@@ -1,10 +1,5 @@
 import { Link } from 'react-router-dom'
 
-// RECORRIDO 1 — Encargado de bodega (persona A)
-// Punto de partida del recorrido. Agrega aquí las pantallas siguientes
-// y registra sus rutas en src/App.jsx, por ejemplo:
-//   <Route path="/bodega/registrar" element={<RegistrarLote />} />
-
 export default function BodegaInicio() {
   return (
     <div className="page">
@@ -12,22 +7,28 @@ export default function BodegaInicio() {
 
       <div className="panel">
         <h2>📦 Encargado de bodega</h2>
-        <p className="subtitle">Recorrido: registro y validación de un lote</p>
+
+        <p className="subtitle">
+          Recorrido: registro y validación de un lote
+        </p>
 
         <div className="note">
-          Esta es la pantalla inicial de tu recorrido. Construye desde aquí las
-          siguientes pantallas según el diagrama de la Fase 1.
+          Flujo BPMN del proceso de recepción y validación sanitaria.
         </div>
 
         <ol className="steps">
-          <li><b>1.</b> Registrar lote — fecha de vencimiento, cantidad, proveedor</li>
-          <li><b>2.</b> ¿Datos válidos? → si no, rechazar lote</li>
-          <li><b>3.</b> ¿Supera stock máximo? → notificar exceso / aprobar</li>
-          <li><b>4.</b> Estado del lote: Almacenado → Disponible para uso</li>
-          <li><b>5.</b> Registrar en BD / Inventario Central</li>
+          <li><b>1.</b> Registrar lote</li>
+          <li><b>2.</b> Validar datos</li>
+          <li><b>3.</b> Revisar stock máximo</li>
+          <li><b>4.</b> Aprobar o rechazar lote</li>
+          <li><b>5.</b> Registrar en inventario</li>
         </ol>
 
-        <button className="btn" type="button">Comenzar registro (TODO)</button>
+        <Link to="/bodega/registrar">
+          <button className="btn">
+            Comenzar registro
+          </button>
+        </Link>
       </div>
     </div>
   )

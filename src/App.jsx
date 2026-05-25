@@ -3,6 +3,7 @@ import Home from './pages/Home.jsx'
 
 // Recorrido 1 — Encargado de bodega (persona A)
 import BodegaInicio from './pages/bodega/BodegaInicio.jsx'
+import BodegaReg from './pages/bodega/BodegaReg.jsx'
 
 // Recorrido 2 — Auxiliar de farmacia (persona B)
 import FarmaciaInicio from './pages/farmacia/FarmaciaInicio.jsx'
@@ -19,6 +20,10 @@ export default function App() {
       {/* Cada persona agrega sus pantallas dentro de su carpeta de recorrido.
           Ej: <Route path="/bodega/registrar" element={<RegistrarLote />} /> */}
       <Route path="/bodega" element={<BodegaInicio />} />
+      <Route
+        path="/bodega/registrar"
+        element={<BodegaReg />}
+      />
       <Route path="/farmacia" element={<FarmaciaInicio />} />
       <Route path="/farmacia/venta" element={<VentaFlow />} />
       <Route path="/admin" element={<AdminInicio />} />
