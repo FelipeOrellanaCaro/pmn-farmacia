@@ -1,6 +1,8 @@
 import { useState } from 'react'
 
-export default function PasoRegistro({ onContinuar }) {
+export default function PasoRegistro({
+  onContinuar,
+}) {
 
   const [datos, setDatos] = useState({
     medicamento: '',
@@ -18,26 +20,60 @@ export default function PasoRegistro({ onContinuar }) {
   }
 
   const handleSubmit = (e) => {
+
     e.preventDefault()
+
     onContinuar(datos)
   }
 
   return (
-    <form onSubmit={handleSubmit} className="form">
 
-      <input
-        type="text"
+    <form
+      onSubmit={handleSubmit}
+      className="form"
+    >
+
+      <select
         name="medicamento"
-        placeholder="Medicamento"
         onChange={handleChange}
-      />
+      >
 
-      <input
-        type="text"
+        <option value="">
+          Seleccione medicamento
+        </option>
+
+        <option value="Paracetamol 500mg">
+          Paracetamol 500mg
+        </option>
+
+        <option value="Amoxicilina 500mg">
+          Amoxicilina 500mg
+        </option>
+
+        <option value="Ibuprofeno 400mg">
+          Ibuprofeno 400mg
+        </option>
+
+      </select>
+
+      <select
         name="proveedor"
-        placeholder="Proveedor"
         onChange={handleChange}
-      />
+      >
+
+        <option value="">
+          Seleccione proveedor
+        </option>
+
+        <option value="Laboratorio Chile">
+          Laboratorio Chile
+        </option>
+
+        <option value="Farmaceutica Andes">
+          Farmaceutica Andes
+        </option>
+
+      </select>
 
       <input
         type="number"
@@ -52,7 +88,10 @@ export default function PasoRegistro({ onContinuar }) {
         onChange={handleChange}
       />
 
-      <button className="btn" type="submit">
+      <button
+        className="btn"
+        type="submit"
+      >
         Continuar
       </button>
 
