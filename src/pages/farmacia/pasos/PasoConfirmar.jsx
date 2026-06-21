@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function PasoConfirmar({ venta, onConcretar }) {
+export default function PasoConfirmar({ venta, onConcretar, cargando }) {
   const [verificado, setVerificado] = useState(false)
   const lote = venta.loteFisico || venta.loteSugerido
 
@@ -27,8 +27,8 @@ export default function PasoConfirmar({ venta, onConcretar }) {
         Verifiqué el producto, el lote y la cantidad
       </label>
 
-      <button className="btn" disabled={!verificado} onClick={onConcretar}>
-        Concretar venta
+      <button className="btn" disabled={!verificado || cargando} onClick={onConcretar}>
+        {cargando ? 'Concretando…' : 'Concretar venta'}
       </button>
     </div>
   )

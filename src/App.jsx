@@ -15,6 +15,8 @@ import VentaFlow from './pages/farmacia/VentaFlow.jsx'
 // Placeholder — Administrador (fuera del alcance del PMN)
 import AdminInicio from './pages/admin/AdminInicio.jsx'
 import Dashboard from './pages/admin/Dashboard.jsx'
+import Productos from './pages/admin/Productos.jsx'
+import Ventas from './pages/admin/Ventas.jsx'
 
 export default function App() {
   return (
@@ -32,6 +34,8 @@ export default function App() {
       <Route path="/farmacia/venta" element={<VentaFlow />} />
       <Route path="/admin" element={<AdminInicio />} />
       <Route path="/admin/dashboard" element={<Dashboard />} />
+      <Route path="/admin/productos" element={<Productos />} />
+      <Route path="/admin/ventas" element={<Ventas />} />
       <Route path="/bodega/inventario" element={<Inventario />} />
       <Route path="/bodega/trazabilidad" element={<Trazabilidad />} />
       <Route path="/bodega/alertas" element={<Alertas />} />

@@ -1,10 +1,47 @@
-import { useState } from 'react'
-import { catalogo } from '../catalogo'
+import { useEffect, useState } from 'react'
+import { cargarProductos } from '../catalogo'
 
 export default function PasoProducto({ venta, onContinuar }) {
-  const [productoId, setProductoId] = useState(venta.producto?.id || '')
+  const [productos, setProductos] = useState([])
+  const [cargandoCatalogo, setCargandoCatalogo] = useState(true)
+  const [error, setError] = useState(null)
+  const [productoId, setProductoId] = useState(venta.producto?.id ?? '')
   const [cantidad, setCantidad] = useState(venta.cantidad || 1)
-  const producto = catalogo.find((p) => p.id === productoId)
+
+  useEffect(() => {
+    let cancelado = false
+    cargarProductos()
+      .then((data) => {
+        if (!cancelado) setProductos(data)
+      })
+      .catch((e) => {
+        if (!cancelado) setError(e.message)
+      })
+      .finally(() => {
+        if (!cancelado) setCargandoCatalogo(false)
+      })
+    return () => {
+      cancelado = true
+    }
+  }, [])
+
+  const producto = productos.find((p) => p.id === Number(productoId))
+
+  if (cargandoCatalogo) {
+    return (
+      <div className="paso">
+        <p className="muted">Cargando catálogo…</p>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="paso">
+        <div className="alert warning">No se pudo cargar el catálogo: {error}</div>
+      </div>
+    )
+  }
 
   return (
     <div className="paso">
@@ -15,7 +52,7 @@ export default function PasoProducto({ venta, onContinuar }) {
         <span>Producto</span>
         <select value={productoId} onChange={(e) => setProductoId(e.target.value)}>
           <option value="">— Elige un producto —</option>
-          {catalogo.map((p) => (
+          {productos.map((p) => (
             <option key={p.id} value={p.id}>
               {p.nombre}
               {p.requiereReceta ? ' (requiere receta)' : ''}
@@ -34,7 +71,11 @@ export default function PasoProducto({ venta, onContinuar }) {
         />
       </label>
 
-      <button className="btn" disabled={!producto} onClick={() => onContinuar(producto, cantidad)}>
+      <button
+        className="btn"
+        disabled={!producto || cantidad < 1}
+        onClick={() => onContinuar(producto, cantidad)}
+      >
         Continuar →
       </button>
     </div>

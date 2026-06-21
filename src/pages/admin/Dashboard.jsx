@@ -50,21 +50,24 @@ export default function Dashboard() {
 
         {stats && (
           <div className="roles">
-            <div className="role-card">
+            <Link to="/admin/productos" className="role-card">
               <span className="icon">💊</span>
               <h2>{stats.productos}</h2>
               <p>Productos</p>
-            </div>
-            <div className="role-card">
+              <span className="cta">Ver detalle →</span>
+            </Link>
+            <Link to="/bodega/inventario" className="role-card">
               <span className="icon">📦</span>
               <h2>{stats.lotes}</h2>
               <p>Lotes</p>
-            </div>
-            <div className="role-card">
+              <span className="cta">Ver detalle →</span>
+            </Link>
+            <Link to="/admin/ventas" className="role-card">
               <span className="icon">🧾</span>
               <h2>{stats.ventas}</h2>
               <p>Ventas</p>
-            </div>
+              <span className="cta">Ver detalle →</span>
+            </Link>
           </div>
         )}
       </div>

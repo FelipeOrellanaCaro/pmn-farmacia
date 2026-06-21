@@ -32,8 +32,8 @@ export default function Home() {
     <div className="page">
       <header className="brand">
         <h1>Sistema de Gestión de Lotes Farmacéuticos</h1>
-        <p>Prototipo Mínimo Navegable (PMN) — selecciona un rol para iniciar el recorrido</p>
-        <span className="tag">Fase 2 · Maqueta visual</span>
+        <p>Prototipo Mínimo Viable — selecciona un rol para iniciar</p>
+        <span className="tag">Entrega final · PMV</span>
       </header>
 
       <section className="roles">
