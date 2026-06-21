@@ -31,11 +31,10 @@ export default function App() {
       <Route path="/farmacia" element={<FarmaciaInicio />} />
       <Route path="/farmacia/venta" element={<VentaFlow />} />
       <Route path="/admin" element={<AdminInicio />} />
-      <Route  path="/bodega/trazabilidad"element={<Trazabilidad />}/>
-      <Route path="/bodega/alertas"element={<Alertas />}/>
-      <Route path="/admin/dashboard"element={<Dashboard />}/>
-      <Route path="/bodega/inventario"element={<Inventario />}/>
+      <Route path="/admin/dashboard" element={<Dashboard />} />
+      <Route path="/bodega/inventario" element={<Inventario />} />
+      <Route path="/bodega/trazabilidad" element={<Trazabilidad />} />
+      <Route path="/bodega/alertas" element={<Alertas />} />
     </Routes>
-
   )
 }
