@@ -1,9 +1,6 @@
 import { useState } from 'react'
 
-export default function PasoRegistro({
-  onContinuar,
-}) {
-
+export default function PasoRegistro({ onContinuar }) {
   const [datos, setDatos] = useState({
     medicamento: '',
     proveedor: '',
@@ -12,89 +9,76 @@ export default function PasoRegistro({
   })
 
   const handleChange = (e) => {
-
-    setDatos({
-      ...datos,
-      [e.target.name]: e.target.value,
-    })
+    setDatos({ ...datos, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = (e) => {
-
     e.preventDefault()
-
     onContinuar(datos)
   }
 
+  const completo =
+    datos.medicamento && datos.proveedor && datos.cantidad && datos.vencimiento
+
   return (
+    <form onSubmit={handleSubmit} className="paso">
+      <h3>1. Registrar lote</h3>
+      <p className="step-desc">
+        Ingresa los datos del lote que llega a bodega. Todos los campos son obligatorios.
+      </p>
 
-    <form
-      onSubmit={handleSubmit}
-      className="form"
-    >
+      <label className="field">
+        <span>Medicamento</span>
+        <select
+          name="medicamento"
+          value={datos.medicamento}
+          onChange={handleChange}
+        >
+          <option value="">— Seleccione medicamento —</option>
+          <option value="Paracetamol 500mg">Paracetamol 500 mg</option>
+          <option value="Amoxicilina 500mg">Amoxicilina 500 mg</option>
+          <option value="Ibuprofeno 400mg">Ibuprofeno 400 mg</option>
+        </select>
+      </label>
 
-      <select
-        name="medicamento"
-        onChange={handleChange}
-      >
+      <label className="field">
+        <span>Proveedor</span>
+        <select
+          name="proveedor"
+          value={datos.proveedor}
+          onChange={handleChange}
+        >
+          <option value="">— Seleccione proveedor —</option>
+          <option value="Laboratorio Chile">Laboratorio Chile</option>
+          <option value="Farmaceutica Andes">Farmaceutica Andes</option>
+        </select>
+      </label>
 
-        <option value="">
-          Seleccione medicamento
-        </option>
+      <label className="field">
+        <span>Cantidad</span>
+        <input
+          type="number"
+          name="cantidad"
+          min="1"
+          placeholder="Ej: 100"
+          value={datos.cantidad}
+          onChange={handleChange}
+        />
+      </label>
 
-        <option value="Paracetamol 500mg">
-          Paracetamol 500mg
-        </option>
+      <label className="field">
+        <span>Fecha de vencimiento</span>
+        <input
+          type="date"
+          name="vencimiento"
+          value={datos.vencimiento}
+          onChange={handleChange}
+        />
+      </label>
 
-        <option value="Amoxicilina 500mg">
-          Amoxicilina 500mg
-        </option>
-
-        <option value="Ibuprofeno 400mg">
-          Ibuprofeno 400mg
-        </option>
-
-      </select>
-
-      <select
-        name="proveedor"
-        onChange={handleChange}
-      >
-
-        <option value="">
-          Seleccione proveedor
-        </option>
-
-        <option value="Laboratorio Chile">
-          Laboratorio Chile
-        </option>
-
-        <option value="Farmaceutica Andes">
-          Farmaceutica Andes
-        </option>
-
-      </select>
-
-      <input
-        type="number"
-        name="cantidad"
-        placeholder="Cantidad"
-        onChange={handleChange}
-      />
-
-      <input
-        type="date"
-        name="vencimiento"
-        onChange={handleChange}
-      />
-
-      <button
-        className="btn"
-        type="submit"
-      >
-        Continuar
+      <button className="btn" type="submit" disabled={!completo}>
+        Continuar →
       </button>
-
     </form>
   )
 }

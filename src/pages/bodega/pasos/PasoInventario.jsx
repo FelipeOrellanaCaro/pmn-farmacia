@@ -1,57 +1,15 @@
-import { supabase } from '../../../lib/supabase'
-
-export default function PasoInventario({
-  onContinuar,
-}) {
-
-  const probarSupabase =
-    async () => {
-
-      const {
-        data,
-        error
-      } = await supabase
-        .from('productos')
-        .select('*')
-
-      console.log(
-        'PRODUCTOS:'
-      )
-
-      console.log(data)
-
-      console.log(
-        'ERROR:'
-      )
-
-      console.log(error)
-    }
-
+export default function PasoInventario({ onContinuar, cargando }) {
   return (
-    <div>
-
-      <h3>
-        💾 Inventario Central
-      </h3>
-
-      <p>
-        El lote será registrado en la base de datos.
+    <div className="paso">
+      <h3>5. Registrar en inventario</h3>
+      <p className="step-desc">
+        El lote se insertará en la base de datos junto con su evento de trazabilidad.
+        Esta acción no se puede deshacer.
       </p>
 
-      <button
-        className="btn"
-        onClick={probarSupabase}
-      >
-        Probar Supabase
+      <button className="btn" onClick={onContinuar} disabled={cargando}>
+        {cargando ? 'Registrando…' : 'Confirmar registro en inventario'}
       </button>
-
-      <button
-        className="btn"
-        onClick={onContinuar}
-      >
-        Finalizar registro
-      </button>
-
     </div>
   )
 }

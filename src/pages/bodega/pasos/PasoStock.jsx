@@ -1,28 +1,24 @@
-export default function PasoStock({
-  lote,
-  onContinuar,
-}) {
-
+export default function PasoStock({ lote, onContinuar }) {
   return (
-    <div>
-
-      <h3>⚠️ Exceso de stock</h3>
-
-      <p>
-        El lote supera el stock máximo permitido.
+    <div className="paso">
+      <h3>3. Revisión de stock máximo</h3>
+      <p className="step-desc">
+        El sistema detectó que la cantidad recibida supera el umbral de stock máximo.
       </p>
 
-      <p>
-        Cantidad recibida: {lote.cantidad}
-      </p>
+      <div className="alert warning">
+        <strong>⚠️ Exceso de stock</strong>
+        <p>
+          Cantidad recibida: <b>{lote.cantidad}</b> unidades · Umbral configurado: <b>500</b>
+        </p>
+        <p>
+          El lote igual será almacenado pero queda registrado el exceso para revisión posterior.
+        </p>
+      </div>
 
-      <button
-        className="btn"
-        onClick={onContinuar}
-      >
-        Continuar
+      <button className="btn" onClick={onContinuar}>
+        Continuar →
       </button>
-
     </div>
   )
 }

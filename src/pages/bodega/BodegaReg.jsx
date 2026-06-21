@@ -122,6 +122,11 @@ export default function BodegaReg() {
           ok: true,
           titulo: 'Lote registrado',
           detalle: 'El lote fue almacenado y registrado en el sistema.',
+          numeroLote: lote.numero_lote,
+          medicamento: bodega.lote.medicamento,
+          proveedor: bodega.lote.proveedor,
+          cantidad: bodega.lote.cantidad,
+          fecha: new Date().toLocaleString('es-CL'),
         },
       })
     } catch (error) {
