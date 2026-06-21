@@ -1,6 +1,7 @@
 // Catálogo simulado de productos y lotes para el recorrido de venta.
-// Hoy = 2026-05-24 (según el contexto del proyecto) para evaluar vencimientos.
-export const HOY = new Date('2026-05-24')
+// Las fechas se evalúan contra la fecha real del sistema (no una fecha fija),
+// de modo que los vencimientos reflejan el calendario actual al momento de la demo.
+export const HOY = new Date()
 
 export const catalogo = [
   {
@@ -8,8 +9,9 @@ export const catalogo = [
     nombre: 'Paracetamol 500 mg',
     requiereReceta: false,
     lotes: [
-      { codigo: 'PAR-001', vence: '2026-06-10', stock: 20, alerta: null },
-      { codigo: 'PAR-002', vence: '2026-12-01', stock: 50, alerta: null },
+      // Camino feliz: ambos lotes vigentes. FEFO elige el que vence primero.
+      { codigo: 'PAR-001', vence: '2026-09-15', stock: 20, alerta: null },
+      { codigo: 'PAR-002', vence: '2027-03-01', stock: 50, alerta: null },
     ],
   },
   {
@@ -17,8 +19,9 @@ export const catalogo = [
     nombre: 'Amoxicilina 500 mg',
     requiereReceta: true,
     lotes: [
-      { codigo: 'AMX-101', vence: '2026-05-01', stock: 15, alerta: null }, // vencido
-      { codigo: 'AMX-102', vence: '2027-01-15', stock: 30, alerta: null },
+      // Demuestra descarte por vencimiento + activa validación de receta.
+      { codigo: 'AMX-101', vence: '2026-04-10', stock: 15, alerta: null }, // vencido
+      { codigo: 'AMX-102', vence: '2027-02-15', stock: 30, alerta: null },
     ],
   },
   {
@@ -26,8 +29,9 @@ export const catalogo = [
     nombre: 'Ibuprofeno 400 mg',
     requiereReceta: false,
     lotes: [
-      { codigo: 'IBU-201', vence: '2026-07-01', stock: 25, alerta: 'Retiro sanitario ISP' }, // alerta
-      { codigo: 'IBU-202', vence: '2026-09-01', stock: 40, alerta: null },
+      // Demuestra descarte por alerta sanitaria (lote vigente pero retirado).
+      { codigo: 'IBU-201', vence: '2026-10-01', stock: 25, alerta: 'Retiro sanitario ISP' },
+      { codigo: 'IBU-202', vence: '2026-12-15', stock: 40, alerta: null },
     ],
   },
   {
@@ -35,7 +39,8 @@ export const catalogo = [
     nombre: 'Loratadina 10 mg',
     requiereReceta: false,
     lotes: [
-      { codigo: 'LOR-301', vence: '2026-08-01', stock: 0, alerta: null }, // sin stock
+      // Demuestra el caso "sin stock".
+      { codigo: 'LOR-301', vence: '2026-11-01', stock: 0, alerta: null },
     ],
   },
 ]
