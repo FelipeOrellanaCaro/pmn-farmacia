@@ -22,8 +22,8 @@ const roles = [
     icon: '⚙️',
     titulo: 'Administrador',
     descripcion:
-      'Gestión de usuarios y configuración del sistema. Fuera del alcance del PMN (placeholder).',
-    estado: 'placeholder',
+      'Dashboard, usuarios, proveedores y monitoreo del sistema.',
+    estado: 'activo',
   },
 ]
 
